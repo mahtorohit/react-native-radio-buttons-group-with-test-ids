@@ -18,6 +18,7 @@ export default function RadioButton({
   selected = false,
   size = 24,
   borderSize = 2,
+  testId,
 }: RadioButtonProps) {
 
   const borderWidth = PixelRatio.roundToNearestPixel(borderSize);
@@ -44,6 +45,7 @@ export default function RadioButton({
   return (
     <>
       <Pressable
+        testID={testId ? `${testId}_button_${id}` : `test_id_radio_button_${id}`}
         onPress={handlePress}
         style={[
           styles.container,
@@ -52,6 +54,7 @@ export default function RadioButton({
           containerStyle,
         ]}>
         <View
+         testID={testId ? `${testId}_button_border_${id}` : `test_id_radio_button_border_${id}`}
           style={[
             styles.border,
             {
@@ -64,6 +67,7 @@ export default function RadioButton({
           ]}>
           {selected && (
             <View
+            testID={testId ? `${testId}_button_view_${id}` : `test_id_radio_button_view_${id}`}
               style={{
                 backgroundColor: color,
                 width: sizeHalf,
@@ -73,9 +77,9 @@ export default function RadioButton({
             />
           )}
         </View>
-        {Boolean(label) && <Text style={[margin, labelStyle]}>{label}</Text>}
+        {Boolean(label) && <Text style={[margin, labelStyle]}  testID={testId ? `${testId}_button_label_${id}` : `test_id_radio_button_label_${id}`}>{label}</Text>}
       </Pressable>
-      {Boolean(description) && <Text style={[margin, descriptionStyle]}>{description}</Text>}
+      {Boolean(description) && <Text style={[margin, descriptionStyle]} testID={testId ? `${testId}_button_description_${id}` : `test_id_radio_button_description_${id}`}>{description}</Text>}
     </>
   );
 }

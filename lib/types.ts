@@ -14,6 +14,7 @@ export type RadioButtonProps = {
   size?: number;
   value?: string;
   borderSize?: number;
+  testId?: string;
 };
 
 export type RadioGroupProps = {
@@ -21,4 +22,5 @@ export type RadioGroupProps = {
   layout?: 'row' | 'column';
   onPress?: (radioButtons: RadioButtonProps[]) => void;
   radioButtons: RadioButtonProps[];
+  testId?: string
 };
