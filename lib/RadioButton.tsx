@@ -46,6 +46,8 @@ export default function RadioButton({
     <>
       <Pressable
         testID={testId ? `${testId}_button_${id}` : `test_id_radio_button_${id}`}
+        accessibilityState={{ checked : selected }}
+        accessibilityValue={{ text : label }}
         onPress={handlePress}
         style={[
           styles.container,
